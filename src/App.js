@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, createContext } from 'react';
 
+import RouterComponent from "./comps/RouterComponent"
+export const User = createContext();
+export const ImageSelected = createContext();
 function App() {
+  const [user, setUser] = useState(localStorage.getItem('user'));
+  const [selectedImage, setSelectedImage] = useState('')
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <User.Provider value={[user, setUser]}>
+        <ImageSelected.Provider value={[selectedImage, setSelectedImage]}>
+          <RouterComponent />
+        </ImageSelected.Provider>
+      </User.Provider>
     </div>
   );
 }
-
 export default App;

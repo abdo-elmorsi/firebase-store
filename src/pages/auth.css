@@ -1,0 +1,126 @@
+.box {
+    margin: 50px auto;
+    width: 800px;
+    border: solid 1px black;
+    height: 500px;
+    transition: 0.3s ease;
+    position: relative;
+    background: white;
+}
+.box .col-1 {
+    background-image: url("https://images.unsplash.com/photo-1533319417894-6fbb331e5513?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80");
+    background-position: center;
+    background-size: cover;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease;
+    position: absolute;
+}
+
+.box .col-2 {
+    right: 0;
+    padding: 20px 0 -20px 0;
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    transition: 0.3s ease;
+    display: flex;
+    justify-content: center;
+}
+.box:hover {
+    -webkit-box-shadow: -10px 15px 0px 3px #e49b0a;
+    box-shadow: -10px 15px 0px 3px #e49b0a;
+}
+.box:hover > .col-1 {
+    transform: translateX(100%);
+}
+.box:hover > .col-2 {
+    transform: translateX(-100%);
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.form form {
+    width: 80%;
+}
+.form form .reigster {
+    margin-top: 40px;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 15px;
+}
+
+.form form .reigster .switch {
+    color: orange;
+    cursor: pointer;
+}
+.form form button {
+    margin-top: 50px;
+    width: 100%;
+    padding: 10px 18px;
+    background-color: orange;
+    border: none;
+    font-size: 20px;
+    position: relative;
+    transition: 0.3s linear;
+}
+.form form button:hover {
+    color: white;
+}
+.form form .form-box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.form form .form-box h2 {
+    margin: 0;
+}
+.form form .form-box label {
+    font-size: 20px;
+    margin-top: 20px;
+}
+.form form .form-box input {
+    outline: none;
+    padding: 7px 18px;
+    border: 3px solid orange;
+    transition: 0.1s linear;
+}
+.form form .form-box input:focus {
+    border: solid 3px black;
+    animation: dropColor 1s infinite;
+}
+@media (max-width: 600px) {
+    .box {
+        margin: 20px auto;
+        width: 100%;
+    }
+    .box .col-1 {
+        display: none;
+    }
+    .box .col-2 {
+        width: 100%;
+    }
+    .box:hover > .col-1 {
+        transform: translateX(0);
+    }
+    .box:hover > .col-2 {
+        transform: translateX(0);
+    }
+}
+@keyframes dropColor {
+    from {
+        -webkit-box-shadow: -10px 15px 0px 3px #e49b0a;
+        box-shadow: -10px 15px 0px 3px #e49b0a;
+    }
+    to {
+        -webkit-box-shadow: -10px 15px 0px 3px #a77207;
+        box-shadow: -10px 15px 0px 3px #a77207;
+    }
+}
