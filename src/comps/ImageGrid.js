@@ -3,6 +3,7 @@ import useFirestore from '../hooks/useFirestore';
 import { motion } from 'framer-motion';
 
 import { ImageSelected } from '../App';
+import ImageLoader from './image-loader';
 const ImageGrid = () => {
   const [, setSelectedImage] = useContext(ImageSelected);
   const { docs } = useFirestore('images');
@@ -15,10 +16,17 @@ const ImageGrid = () => {
           whileHover={{ opacity: 1 }} s
           onClick={() => setSelectedImage(doc?.url)}
         >
-          <motion.img src={doc?.url ? doc.url : 'https://www.gettyimages.com/gi-resources/images/500px/983794168.jpg'} alt="uploaded pic"
+          {/* <motion.img src={doc?.url ? doc.url : 'https://www.gettyimages.com/gi-resources/images/500px/983794168.jpg'} alt="uploaded pic"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
+          /> */}
+          <ImageLoader
+            src={doc?.url ? doc.url : 'https://www.gettyimages.com/gi-resources/images/500px/983794168.jpg'}
+            alt="uploaded pic"
+          // initial={{ opacity: 0 }}
+          // animate={{ opacity: 1 }}
+          // transition={{ delay: 1 }}
           />
         </motion.div>
       )))}
